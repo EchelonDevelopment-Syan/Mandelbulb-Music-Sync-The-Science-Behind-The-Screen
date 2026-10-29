@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --audio-level: 0;
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes alpha-breath {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.015); }
+}
+
+.radar-sweep-anim {
+  animation: radar-sweep 2.2s linear infinite;
+}
+
+.alpha-breath-anim {
+  animation: alpha-breath 6s ease-in-out infinite;
+}
+
+.ui-reactive-panel {
+  box-shadow: 0 0 calc(10px + var(--audio-level) * 35px) rgba(0, 220, 255, calc(0.08 + var(--audio-level) * 0.35));
+  border-color: rgba(255, 255, 255, calc(0.1 + var(--audio-level) * 0.35)) !important;
+  transition: box-shadow 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+.ui-reactive-button {
+  box-shadow: 0 0 calc(6px + var(--audio-level) * 20px) rgba(0, 220, 255, calc(0.15 + var(--audio-level) * 0.5));
+}
